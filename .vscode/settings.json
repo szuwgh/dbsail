@@ -1,0 +1,5 @@
+{
+    "python.formatting.provider": "yapf",
+    "python.pythonPath": "/usr/local/bin/python3",
+    "editor.fontSize": 13,
+}
