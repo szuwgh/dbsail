@@ -89,6 +89,6 @@ Common options
 * `-u/--user`: database user account
 * `-P/--port`: database port
 * `-P/--password`: database user passport
-* `-b/--batch`: the number of rows inserted into the database at a time, ex: 10
-* `-c/--count`: the total number of rows inserted into the database, ex: 1000
-* `-s/--size`: total size of inserts into the database, ex:1K,1M,1G defalut:10M
+* `-b/--batch`: the number of rows inserted into the database at a time, e.g.: 10
+* `-c/--count`: the total number of rows inserted into the database, e.g.: 1000
+* `-s/--size`: total size of inserts into the database, e.g.:1K,1M,1G defalut:10M
