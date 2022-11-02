@@ -101,23 +101,24 @@ class Mysql:
         from progress.bar import ChargingBar
         q = int(count / batch)
         r = count % batch
-        bar = ChargingBar('Processing',
-                          max=q + 1,
-                          suffix='%(percent)d%%',
-                          width=64)
+        bar = ChargingBar(
+            'Processing',
+            max=count,
+            suffix='%(percent).2f%%  %(index)d/%(max)d %(eta_td)s',
+            width=64)
         print("you will insert %s rows of data\n" % count)
         for _ in range(0, q):
             values = []
             for _ in range(0, batch):
                 values.append(raw_data)
             self.executemany(insert_sql, values)
-            bar.next()
+            bar.next(batch)
         if r > 0:
             values = []
             for _ in range(0, r):
                 values.append(raw_data)
             self.executemany(insert_sql, values)
-        bar.next()
+        bar.next(r)
         bar.finish()
         ticks2 = time.time()
         st = strftime("%H:%M:%S", gmtime(ticks2 - ticks1))
@@ -237,23 +238,24 @@ class Postgresql:
         from progress.bar import ChargingBar
         q = int(count / batch)
         r = count % batch
-        bar = ChargingBar('Processing',
-                          max=q + 1,
-                          suffix='%(percent)d%%',
-                          width=64)
+        bar = ChargingBar(
+            'Processing',
+            max=count,
+            suffix='%(percent).2f%%  %(index)d/%(max)d %(eta_td)s',
+            width=64)
         print("you will insert %s rows of data\n" % count)
         for _ in range(0, q):
             values = []
             for _ in range(0, batch):
                 values.append(raw_data)
             self.executemany(insert_sql, values)
-            bar.next()
+            bar.next(batch)
         if r > 0:
             values = []
             for _ in range(0, r):
                 values.append(raw_data)
             self.executemany(insert_sql, values)
-        bar.next()
+        bar.next(r)
         bar.finish()
         ticks2 = time.time()
         st = strftime("%H:%M:%S", gmtime(ticks2 - ticks1))
