@@ -4,7 +4,7 @@ import os
 
 info = 'rWbhSHMi42ItE5GnqLgAQAHkb5PUsT1m7t8i3JzAteElBRqqDbzxKxwjUMi2aFM1VdjHLat4HV8KCqZQXD7Odi9hEWfbVowWjpWvKnxP8aRf93fdLBniNHDGQlVrYUzP9HbBNFthgapdKlbn78NwiyZkekKesTVhpHnHwDpAS71B7Lzrkz58pToEOgzWTEn8xvGeQirDFr7VFkQHev4tdiN4r8aID8n9Aqjf5QdvDHSIBdPy4VtpqSgWIF5XjfN'
 one_raw_size = 1  # 1KB
-v = '0.1'
+v = '0.2'
 insert_sql = 'insert into test1 (FIRST_NAME,LAST_NAME, AGE, SEX, INFO, INCOME) values(%s,%s,%s,%s,%s,%s)'
 raw_data = ('Mac', 'Mohan', 20, 'M', info, 2000.11)
 
