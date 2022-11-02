@@ -6,7 +6,7 @@ This tool is used to connect to mysql or postgresql and insert data of customiza
 
 #### insert mysql data
 ```
-$ ./dbsail mysql -h 127.0.0.1 -u root -p 123456
+$ ./dbsail mysql -h 127.0.0.1 -u root -p 123456 -s 10M
 This tool is used to connect to mysql or postgresql and insert data of customizable size, power by wgh
 
  ____    ____     ____    ______  ______   __
@@ -33,7 +33,7 @@ finish insert 10240 rows data, usage time 00:00:03
 #### insert postgresql data
 
 ```
-$ ./dbsail pg -h 127.0.0.1 -u test -p 123456
+$ ./dbsail pg -h 127.0.0.1 -u test -p 123456 -s 10M
 This tool is used to connect to mysql or postgresql and insert data of customizable size, power by wgh
 
  ____    ____     ____    ______  ______   __
