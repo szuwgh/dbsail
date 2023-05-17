@@ -92,3 +92,4 @@ Common options
 * `-b/--batch`: the number of rows inserted into the database at a time, e.g.: 10
 * `-c/--count`: the total number of rows inserted into the database, e.g.: 1000
 * `-s/--size`: total size of inserts into the database, e.g.:1K,1M,1G defalut:10M
+* `-d/--database`: select the database to insert, e.g.:testdbbase
