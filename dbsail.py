@@ -2,11 +2,21 @@ import click
 
 import os
 
-info = 'rWbhSHMi42ItE5GnqLgAQAHkb5PUsT1m7t8i3JzAteElBRqqDbzxKxwjUMi2aFM1VdjHLat4HV8KCqZQXD7Odi9hEWfbVowWjpWvKnxP8aRf93fdLBniNHDGQlVrYUzP9HbBNFthgapdKlbn78NwiyZkekKesTVhpHnHwDpAS71B7Lzrkz58pToEOgzWTEn8xvGeQirDFr7VFkQHev4tdiN4r8aID8n9Aqjf5QdvDHSIBdPy4VtpqSgWIF5XjfN'
+info = [
+    'rWbhSHMi42ItE5GnqLgAQAHkb5PUsT1m7t8i3JzAteElBRqqDbzxKxwjUMi2aFM1VdjHLat4HV8KCqZQXD7Odi9hEWfbVowWjpWvKnxP8aRf93fdLBniNHDGQlVrYUzP9HbBNFthgapdKlbn78NwiyZkekKesTVhpHnHwDpAS71B7Lzrkz58pToEOgzWTEn8xvGeQirDFr7VFkQHev4tdiN4r8aID8n9Aqjf5QdvDHSIBdPy4VtpqSgWIF5XjfN',
+    'rafefgryhryhswjUMi2aFM1VdjHLat4HV8KCqZQXD7Odgregesrgeradfjlewhgoahgoawejwl;jfaewfP9HbBNFthgapdKlbn78Nwigrergfwjeofyyaghaheryaflsreg71B7Lzrkz58pToEOgzWTEn8xvGeQirDFr7VFfjowehgpehwgoajwelrfjeiaflejflawjflvDHSIBdPy4VegohaoyehyiueltheghpoaoeytfletpqSgWIF5XjfN',
+    'aefaefetertagwegfawge4hrtujjsjfweifjhjahfghfohaoefhoehfoaefef3t4awgaweg32r;jfaewfP9HbBNFtegoeyfoerfolahbvoyzfoueaofjaefeefgyaflsreg71B7Lzrkz58pToEOgzWTEn8xvGfwegohwe3ohglbgnyhgfoawjerf;lahgohawoehglahgawhef;oijawe;lfhawoeuf;oewjhf;lahfoye;oaf;lahfjeF5XjfN',
+    'aefaefetejlaheoiyoajfeowaihfoiahefljwoighowehglejho;awufoiehfl;wajlf;haowehgoiegiawhfejo;wiaufoaywfo;oejao;efhohewaofhoawhefogiggj;oighoehoawrfwegryhshaseawrfwejeF5XjfNsenl;fhwo;eghoyeawfjel;hFgiyewfojlejawflhiugieghaejl;ahfigeighoaehfgiuiehgehfo;aghweify',
+    'elawhgo4yeohawleghoewhfoewjgjf;liawhgogigfoawejpfusapowyegoawnfljsl;egj;oawehfgoyaweofjawehgfvowyewoghl;waeheo;fyoewufoawhl;ha;lfjaopwehgou3oyy9043765093465934yhawklgfsoiawte98r63257q23uoawhgefp3y297y392ar392yt969q7rtq2y3t9p9q237r9q23yropq2yt906q2397r2q3y']
+data1=['Mac','The','Mon','Yes','Ok']
+data2=['Mohan','zhagnsan','lisi','wagnwu','ok']
+data3=[20,10,30,40,50]
+data4=['M','H','S','L','XL']
+data6=[2000.11,1998,1696,1587,1698]
 one_raw_size = 1  # 1KB
-v = '0.2'
+v = '0.3'
 insert_sql = 'insert into test1 (FIRST_NAME,LAST_NAME, AGE, SEX, INFO, INCOME) values(%s,%s,%s,%s,%s,%s)'
-raw_data = ('Mac', 'Mohan', 20, 'M', info, 2000.11)
+#raw_data = ('Mac', 'Mohan', 20, 'M', info[0], 2000.11)
 
 
 def exit():
@@ -109,14 +119,16 @@ class Mysql:
         print("you will insert %s rows of data\n" % count)
         for _ in range(0, q):
             values = []
-            for _ in range(0, batch):
-                values.append(raw_data)
+            for i in range(0, batch):
+                i = i%5
+                values.append((data1[i], data2[i], data3[i],  data4[i], info[i], data6[i]))
             self.executemany(insert_sql, values)
             bar.next(batch)
         if r > 0:
             values = []
-            for _ in range(0, r):
-                values.append(raw_data)
+            for i in range(0, r):
+                i = i%5
+                values.append((data1[i], data2[i], data3[i],  data4[i], info[i], data6[i]))
             self.executemany(insert_sql, values)
         bar.next(r)
         bar.finish()
@@ -246,14 +258,16 @@ class Postgresql:
         print("you will insert %s rows of data\n" % count)
         for _ in range(0, q):
             values = []
-            for _ in range(0, batch):
-                values.append(raw_data)
+            for i in range(0, batch):
+                i = i%5
+                values.append((data1[i], data2[i], data3[i],  data4[i], info[i], data6[i]))
             self.executemany(insert_sql, values)
             bar.next(batch)
         if r > 0:
             values = []
-            for _ in range(0, r):
-                values.append(raw_data)
+            for i in range(0, r):
+                i = i%5
+                values.append((data1[i], data2[i], data3[i],  data4[i], info[i], data6[i]))
             self.executemany(insert_sql, values)
         bar.next(r)
         bar.finish()
